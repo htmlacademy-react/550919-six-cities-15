@@ -134,12 +134,8 @@ const Offer: React.FC = () => (
                 <div className="offer__avatar-wrapper offer__avatar-wrapper--pro user__avatar-wrapper">
                   <img className="offer__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar" />
                 </div>
-                <span className="offer__user-name">
-                    Angelina
-                  </span>
-                <span className="offer__user-status">
-                    Pro
-                  </span>
+                <span className="offer__user-name">Angelina</span>
+                <span className="offer__user-status">Pro</span>
               </div>
               <div className="offer__description">
                 <p className="offer__text">
@@ -158,9 +154,7 @@ const Offer: React.FC = () => (
                     <div className="reviews__avatar-wrapper user__avatar-wrapper">
                       <img className="reviews__avatar user__avatar" src="img/avatar-max.jpg" width="54" height="54" alt="Reviews avatar" />
                     </div>
-                    <span className="reviews__user-name">
-                        Max
-                      </span>
+                    <span className="reviews__user-name">Max</span>
                   </div>
                   <div className="reviews__info">
                     <div className="reviews__rating rating">
