@@ -107,9 +107,8 @@ const MainPage: React.FC<MainPageProps> = (props) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {Array.from({ length: numberOfCards }).map((_, index) => (
-                  <OfferCard key={index} />
-                ))}
+                {Array.from({length: numberOfCards}, (_, index) => <OfferCard key={index} />
+                )}
               </div>
             </section>
             <div className="cities__right-section">
