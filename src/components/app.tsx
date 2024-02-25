@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPage from '../components/main';
+import MainPage from '../pages/main';
 
 type AppScreenProps = {
   numberOfCards: number;
