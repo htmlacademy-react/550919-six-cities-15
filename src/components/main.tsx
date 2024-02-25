@@ -1,5 +1,5 @@
 import React from 'react';
-import OfferCard from './offer-card';
+import OfferCard from '../pages/offer-card';
 
 interface MainPageProps {
   numberOfCards: number;
