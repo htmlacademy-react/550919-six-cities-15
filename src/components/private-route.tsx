@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
 
 type PrivateRouteProps = {
-  element: React.ReactNode;
+  element: JSX.Element;
   isAuthenticated: boolean;
 };
 
