@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 type PrivateRouteProps = {
   element: JSX.Element;
@@ -7,6 +7,6 @@ type PrivateRouteProps = {
 };
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ element, isAuthenticated }) =>
-  isAuthenticated ? <Route element={element} /> : <Navigate to="/login" />;
+  isAuthenticated ? element : <Navigate to="/login" />;
 
 export default PrivateRoute;

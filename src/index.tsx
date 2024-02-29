@@ -7,10 +7,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const isAuthenticated = false;
+
 root.render(
   <React.StrictMode>
     <App
       numberOfCards = {5}
+      isAuthenticated={isAuthenticated}
     />
   </React.StrictMode>
 );
