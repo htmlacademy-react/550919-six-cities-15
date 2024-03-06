@@ -15,14 +15,16 @@ const CommentCard: React.FC<CommentCardProps> = ({ comments }) => {
   // Новый комментарий
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
-      const newCommentObject = {
-        id: commentList.length + 1,
-        user: { avatarUrl: 'https://i.pravatar.cc/121', userName: 'User', isPro: true },
-        rating: 5,
-        comment: newComment,
-        date: new Date().toDateString(),
-      };
-      setCommentList((prevComments: Comments) => [...prevComments, newCommentObject]);
+      setCommentList((prevComments: Comments) => [
+        ...prevComments,
+        {
+          id: (commentList.length + 1).toString(),
+          user: { avatarUrl: 'https://i.pravatar.cc/121', userName: 'User', isPro: true },
+          rating: 5,
+          comment: newComment,
+          date: new Date().toDateString(),
+        } as Comment,
+      ]);
       setNewComment('');
     }
   };
