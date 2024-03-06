@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Offers } from '../types/offers';
+import { Offer } from '../types/offers';
 import { Link } from 'react-router-dom';
 
 type OfferCardProps = {
-  offer: Offers;
+  offer: Offer;
   setActiveOffer: (id: string | null) => void;
 }
 
 const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer }) => {
   const { isPremium, previewImage, price, id, rating, type, name, isFavorite } = offer;
-  const [isFavoriteCard, setIsFavoriteCard] = useState(isFavorite as boolean);
+  const [isFavoriteCard, setIsFavoriteCard] = useState(isFavorite);
 
   const handleMouseOver = () => {
     setActiveOffer(id as string | null);

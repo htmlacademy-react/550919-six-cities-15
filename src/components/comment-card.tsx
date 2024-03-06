@@ -22,7 +22,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comments }) => {
         comment: newComment,
         date: new Date().toDateString(),
       };
-      setCommentList((prevComments) => [...prevComments, newCommentObject]);
+      setCommentList((prevComments: Comments) => [...prevComments, newCommentObject]);
       setNewComment('');
     }
   };
