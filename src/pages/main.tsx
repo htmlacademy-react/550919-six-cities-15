@@ -1,12 +1,15 @@
-import React from 'react';
-import OfferCard from '../components/offer-card';
+import React, { useState } from 'react';
+import { Offers } from '../types/offers';
+import OfferCardList from '../components/offer-card-list';
+import { Link } from 'react-router-dom';
 
 interface MainPageProps {
-  numberOfCards: number;
+  offers: Offers;
 }
 
 const MainPage: React.FC<MainPageProps> = (props) => {
-  const { numberOfCards } = props;
+  const { offers } = props;
+  const [activeOffer, setActiveOffer] = useState<string | null>(null);
 
   return (
     <div className="page page--gray page--main">
@@ -14,9 +17,9 @@ const MainPage: React.FC<MainPageProps> = (props) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link header__logo-link--active">
+              <Link to="/" className="header__logo-link">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -106,13 +109,10 @@ const MainPage: React.FC<MainPageProps> = (props) => {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {Array.from({length: numberOfCards}, (_, index) => <OfferCard key={index} />
-                )}
-              </div>
+              <OfferCardList offers={offers} setActiveOffer={setActiveOffer} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">{activeOffer}</section>
             </div>
           </div>
         </div>

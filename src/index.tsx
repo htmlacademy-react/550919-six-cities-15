@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app';
+import { offers } from './mocks/offers';
+import { comments } from './mocks/comments';
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const isAuthenticated = false;
+const isAuthenticated = true;
 
 root.render(
   <React.StrictMode>
     <App
       numberOfCards = {5}
       isAuthenticated={isAuthenticated}
+      offers={offers}
+      comments={comments}
     />
   </React.StrictMode>
 );
