@@ -3,12 +3,12 @@ import { Offers } from '../types/offers';
 import { Link } from 'react-router-dom';
 
 type OfferCardProps = {
-  offers: Offers;
+  offer: Offers;
   setActiveOffer: (id: string | null) => void;
 }
 
-const OfferCard: React.FC<OfferCardProps> = ({ offers, setActiveOffer }) => {
-  const { isPremium, previewImage, price, id, rating, type, name, isFavorite } = offers;
+const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer }) => {
+  const { isPremium, previewImage, price, id, rating, type, name, isFavorite } = offer;
   const [isFavoriteCard, setIsFavoriteCard] = useState(isFavorite as boolean);
 
   const handleMouseOver = () => {

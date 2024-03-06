@@ -14,7 +14,6 @@ const isAuthenticated = true;
 root.render(
   <React.StrictMode>
     <App
-      numberOfCards = {5}
       isAuthenticated={isAuthenticated}
       offers={offers}
       comments={comments}

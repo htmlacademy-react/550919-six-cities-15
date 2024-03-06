@@ -10,7 +10,7 @@ type OfferCardListProps = {
 const OfferCardList: React.FC<OfferCardListProps> = ({ offers, setActiveOffer }) => (
   <div className="cities__places-list places__list tabs__content">
     {offers.map((offer) => (
-      <OfferCard key={offer.id} offers={offer} setActiveOffer={setActiveOffer} />
+      <OfferCard key={offer.id} offer={offer} setActiveOffer={setActiveOffer} />
     ))}
   </div>
 );
