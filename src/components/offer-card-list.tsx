@@ -4,7 +4,7 @@ import {Offers} from '../types/offers';
 
 type OfferCardListProps = {
   offers: Offers;
-  setActiveOffer: (id: string | null) => void;
+  setActiveOffer: (id: number | null) => void;
 }
 
 const OfferCardList: React.FC<OfferCardListProps> = ({ offers, setActiveOffer }) => (
