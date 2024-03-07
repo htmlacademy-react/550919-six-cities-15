@@ -9,7 +9,7 @@ interface MainPageProps {
 
 const MainPage: React.FC<MainPageProps> = (props) => {
   const { offers } = props;
-  const [activeOffer, setActiveOffer] = useState<string | null>(null);
+  const [activeOffer, setActiveOffer] = useState<number | null>(null);
 
   return (
     <div className="page page--gray page--main">
