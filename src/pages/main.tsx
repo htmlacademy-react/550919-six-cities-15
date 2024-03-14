@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Offers } from '../types/offers';
 import OfferCardList from '../components/offer-card-list';
 import Header from '../components/header';
+import { city } from '../mocks/city';
+import Map from '../components/map';
 
 interface MainPageProps {
   offers: Offers;
@@ -85,7 +87,7 @@ const MainPage: React.FC<MainPageProps> = (props) => {
               <OfferCardList offers={offers} setActiveOffer={setActiveOffer} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map">{activeOffer}</section>
+              <Map offers={offers} activeOffer={activeOffer} city={city} />
             </div>
           </div>
         </div>
