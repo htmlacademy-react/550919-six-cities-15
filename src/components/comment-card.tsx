@@ -13,8 +13,8 @@ const CommentCard: React.FC<CommentCardProps> = ({ comments }) => {
     setNewComment(event.target.value);
   };
 
-  const handleRatingChange = (value: number) => {
-    setSelectedRating(value);
+  const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedRating(Number(event.target.value));
   };
 
   return (
@@ -53,7 +53,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comments }) => {
                 id={`${5 - index}-stars`}
                 type="radio"
                 checked={selectedRating === 5 - index}
-                onChange={() => handleRatingChange(5 - index)}
+                onChange={handleRatingChange}
               />
               <label htmlFor={`${5 - index}-stars`} className="reviews__rating-label form__rating-label">
                 <svg className="form__star-image" width="37" height="33">
@@ -68,7 +68,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comments }) => {
           <p className="reviews__help">
             To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
           </p>
-          <button className="reviews__submit form__submit button" type="submit" disabled>Submit</button>
+          <button className="reviews__submit form__submit button" type="submit" disabled={!selectedRating || newComment.length < 50}>Submit</button>
         </div>
       </form>
     </div>
