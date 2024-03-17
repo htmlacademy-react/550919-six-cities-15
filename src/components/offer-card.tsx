@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 type OfferCardProps = {
   offer: Offer;
-  setActiveOffer: (id: number | null) => void;
+  setActiveOffer?: (id: number | null) => void;
   additionalClass?: string;
   imageSize?: string;
   imageWidth?: number;
@@ -14,11 +14,15 @@ type OfferCardProps = {
 const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer, additionalClass, imageSize, imageWidth, imageHeight }) => {
   const { isPremium, previewImage, price, id, rating, type, name, isFavorite } = offer;
   const handleMouseOver = () => {
-    setActiveOffer(id as number | null);
+    if (setActiveOffer) {
+      setActiveOffer(id as number | null);
+    }
   };
 
   const handleMouseOut = () => {
-    setActiveOffer(null);
+    if (setActiveOffer) {
+      setActiveOffer(null);
+    }
   };
 
   const cardClasses = `${additionalClass ? 'favorites__card' : 'cities__card'} place-card`;

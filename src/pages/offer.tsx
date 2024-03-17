@@ -15,7 +15,7 @@ type OfferProps = {
 
 const Offer: React.FC<OfferProps> = ({ offers, comments }) => {
   const params = useParams();
-  const cardId = params.id;
+  const cardId = parseInt(params.id || '0', 10);
   const selectedCard = offers.filter((offer) => offer.id === parseInt(cardId, 10))[0];
   const otherOffers = offers.filter((offer) => offer.id !== selectedCard?.id).slice(0, 3);
   return (
