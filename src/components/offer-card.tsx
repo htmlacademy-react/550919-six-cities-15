@@ -29,7 +29,7 @@ const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer, additional
     <article className={cardClasses} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       {isPremium && <div className="place-card__mark"><span>Premium</span></div>}
       <div className={imageClasses}>
-        <Link to={`offer/${id}`}>
+        <Link to={`/offer/${id}`}>
           <img
             className="place-card__image"
             src={previewImage}

@@ -7,6 +7,7 @@ import { Offer, Offers } from '../types/offers';
 import { CityMap } from '../types/city-map';
 
 type MapProps = {
+  mapType: 'main' | 'offer';
   city: CityMap;
   offers: Offers;
   activeOffer: Offer['id'] | null;
@@ -24,7 +25,7 @@ const currentCustomIcon = leaflet.icon({
   iconAnchor: [27, 39],
 });
 
-function Map({ city, offers, activeOffer }: MapProps) {
+function Map({ mapType, city, offers, activeOffer }: MapProps) {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
   useEffect(() => {
@@ -44,8 +45,18 @@ function Map({ city, offers, activeOffer }: MapProps) {
 
   return (
     <section
-      style={{ height: '100%' }}
-      className="cities__map map"
+      style={mapType === 'main' ?
+        {
+          height: '100%',
+          minHeight: '500px',
+          width: '100%',
+          minWidth: '1144px',
+          margin: '0, auto'
+        }
+        : {
+          height: '100%'
+        }}
+      className={`${mapType}__map map`}
       ref={mapRef}
     >
     </section>

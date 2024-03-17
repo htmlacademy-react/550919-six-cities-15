@@ -29,7 +29,7 @@ const App: React.FC<AppScreenProps> = ({ isAuthenticated, offers, comments }) =>
           </PrivateRoute>
         }
       />
-      <Route path={AppRoutes.Offer} element={<Offer comments={comments} />} />
+      <Route path={AppRoutes.Offer} element={<Offer offers={offers} comments={comments} />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Router>

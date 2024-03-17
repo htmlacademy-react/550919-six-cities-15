@@ -87,7 +87,7 @@ const MainPage: React.FC<MainPageProps> = (props) => {
               <OfferCardList offers={offers} setActiveOffer={setActiveOffer} />
             </section>
             <div className="cities__right-section">
-              <Map offers={offers} activeOffer={activeOffer} city={city} />
+              <Map mapType={'offer'} offers={offers} activeOffer={activeOffer} city={city} />
             </div>
           </div>
         </div>
