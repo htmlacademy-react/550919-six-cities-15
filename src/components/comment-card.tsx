@@ -14,7 +14,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comments }) => {
   };
 
   const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedRating(Number(event.target.value));
+    setSelectedRating(+event.target.value);
   };
 
   return (
