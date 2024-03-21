@@ -40,6 +40,6 @@ const LocationsList: React.FC<LocationsListProps> = ({ cities }) => {
       </section>
     </div>
   );
-}
+};
 
 export default LocationsList;
