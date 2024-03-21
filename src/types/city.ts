@@ -6,3 +6,12 @@ export type City = {
     zoom: number;
   };
 };
+
+export type CityList = {
+  Paris: string;
+  Cologne: string;
+  Brussels: string;
+  Amsterdam: string;
+  Hamburg: string;
+  Dusseldorf: string;
+};

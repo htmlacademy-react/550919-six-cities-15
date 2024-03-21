@@ -14,12 +14,13 @@ type AppScreenProps = {
   isAuthenticated: boolean;
   offers: Offers;
   comments: Comments;
+  citiesList: string[];
 };
 
-const App: React.FC<AppScreenProps> = ({ isAuthenticated, offers, comments }) => (
+const App: React.FC<AppScreenProps> = ({ isAuthenticated, offers, comments , citiesList}) => (
   <Router>
     <Routes>
-      <Route path={AppRoutes.Main} element={<MainPage offers={offers} />} />
+      <Route path={AppRoutes.Main} element={<MainPage citiesList = {citiesList} />} />
       <Route path={AppRoutes.Login} element={<LoginPage />} />
       <Route
         path={AppRoutes.Favorites}
