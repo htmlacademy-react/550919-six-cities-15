@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../hooks/index';
 import CommentCard from '../components/comment-card';
 import { Comments } from '../types/comments';
 import Header from '../components/header';
@@ -14,7 +13,6 @@ type OfferProps = {
 };
 
 const Offer: React.FC<OfferProps> = ({ offers, comments }) => {
-  const cityMapActive = useAppSelector((state) => state.city);
   const params = useParams();
   const cardId = parseInt(params.id || '0', 10).toString();
   const selectedCard = offers.filter((offer) => offer.id === parseInt(cardId, 10))[0];
@@ -145,7 +143,7 @@ const Offer: React.FC<OfferProps> = ({ offers, comments }) => {
               </section>
             </div>
           </div>
-          <Map mapType={'main'} offers={offers} activeOffer={selectedCard.id} city={cityMapActive}/>
+          <Map mapType={'main'} offers={offers} activeOffer={selectedCard.id} city={selectedCard}/>
         </section>
         <div className="container">
           <section className="near-places places">

@@ -4,16 +4,21 @@ import Header from '../components/header';
 import Map from '../components/map';
 import { useAppSelector } from '../hooks/index';
 import LocationsList from '../components/location-list';
+import {Offers} from '../types/offers';
+import {useParams} from 'react-router-dom';
 
 interface MainPageProps {
+  offers: Offers;
   citiesList: string[];
 }
 
-const MainPage: React.FC<MainPageProps> = ({ citiesList }) => {
+const MainPage: React.FC<MainPageProps> = ({ citiesList,offers }) => {
   const [activeOffer, setActiveOffer] = useState<number | null>(null);
+  const params = useParams();
+  const cardId = parseInt(params.id || '0', 10).toString();
+  const selectedCard = offers.filter((offer) => offer.id === parseInt(cardId, 10))[0];
   const cityActive = useAppSelector((state) => state.cityActive);
   const offersActive = useAppSelector((state) => state.offers);
-  const cityMapActive = useAppSelector((state) => state.city);
   const placesCount = offersActive.length;
 
   return (
@@ -53,7 +58,7 @@ const MainPage: React.FC<MainPageProps> = ({ citiesList }) => {
               <OfferCardList offers={offersActive} setActiveOffer={setActiveOffer} />
             </section>
             <div className="cities__right-section">
-              <Map mapType={'offer'} offers={offersActive} activeOffer={activeOffer} city={cityMapActive} />
+              <Map mapType={'offer'} offers={offersActive} activeOffer={activeOffer} city={selectedCard} />
             </div>
           </div>
         </div>

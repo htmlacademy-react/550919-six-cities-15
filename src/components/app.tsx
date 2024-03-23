@@ -20,7 +20,7 @@ type AppScreenProps = {
 const App: React.FC<AppScreenProps> = ({ isAuthenticated, offers, comments , citiesList}) => (
   <Router>
     <Routes>
-      <Route path={AppRoutes.Main} element={<MainPage citiesList = {citiesList} />} />
+      <Route path={AppRoutes.Main} element={<MainPage offers={offers} citiesList = {citiesList} />} />
       <Route path={AppRoutes.Login} element={<LoginPage />} />
       <Route
         path={AppRoutes.Favorites}

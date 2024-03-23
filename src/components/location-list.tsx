@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/index';
 import { setCityActive, getOffers, setChangeMap } from '../store/action';
-import { cityMap } from '../const';
 
 type LocationsListProps = {
   cities: string[];
@@ -12,13 +11,10 @@ const LocationsList: React.FC<LocationsListProps> = ({ cities }) => {
   const dispatch = useAppDispatch();
 
   function changeCity(city: string) {
-    const cityMapActive = cityMap.find((item) => item.title === city);
-
-    if (cityMapActive) {
-      dispatch(setCityActive(city));
-      dispatch(getOffers());
-      dispatch(setChangeMap(cityMapActive));
-    }
+    dispatch(setCityActive(city));
+    dispatch(getOffers());
+    // Вместо использования cityMap, передаем просто имя города
+    dispatch(setChangeMap(city));
   }
 
   return (
