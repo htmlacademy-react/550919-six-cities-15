@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import CommentCard from '../components/comment-card';
 import { Comments } from '../types/comments';
 import Header from '../components/header';
-import {city} from '../mocks/city';
 import Map from '../components/map';
 import {Offers} from '../types/offers';
 import NearOfferCardList from '../components/near-offer-card-list';
@@ -144,7 +143,7 @@ const Offer: React.FC<OfferProps> = ({ offers, comments }) => {
               </section>
             </div>
           </div>
-          <Map mapType={'main'} offers={offers} activeOffer={selectedCard.id} city={city}/>
+          <Map mapType={'main'} offers={offers} activeOffer={selectedCard.id} city={selectedCard}/>
         </section>
         <div className="container">
           <section className="near-places places">

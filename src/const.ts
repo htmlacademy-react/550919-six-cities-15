@@ -1,3 +1,5 @@
+import { CityList } from './types/city';
+
 export enum AppRoutes {
   Login = '/login',
   Favorites = '/favorites',
@@ -7,3 +9,18 @@ export enum AppRoutes {
 
 export const URL_MARKER_DEFAULT = './public/img/pin.svg';
 export const URL_MARKER_CURRENT = './public/img/pin-active.svg';
+
+export const CITY_LIST: CityList = {
+  Paris: 'Paris',
+  Cologne: 'Cologne',
+  Brussels: 'Brussels',
+  Amsterdam: 'Amsterdam',
+  Hamburg: 'Hamburg',
+  Dusseldorf: 'Dusseldorf',
+} as const;
+
+export const citiesList = Object.values(CITY_LIST);
+
+export const DEFAULT_CITY = CITY_LIST.Paris;
+
+export const [defaultLocation] = CITY_LIST.Amsterdam;
