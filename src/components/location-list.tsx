@@ -1,20 +1,27 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/index';
 import { setCityActive, getOffers, setChangeMap } from '../store/action';
+import {Offers} from '../types/offers';
+import {useParams} from 'react-router-dom';
 
 type LocationsListProps = {
+  offers: Offers;
   cities: string[];
 }
 
-const LocationsList: React.FC<LocationsListProps> = ({ cities }) => {
+const LocationsList: React.FC<LocationsListProps> = ({ cities,offers }) => {
   const cityActive = useAppSelector((state) => state.cityActive);
   const dispatch = useAppDispatch();
+  const params = useParams();
+  const cardId = parseInt(params.id || '0', 10).toString();
+  const selectedCard = offers.filter((offer) => offer.id === parseInt(cardId, 10))[0];
 
   function changeCity(city: string) {
-    dispatch(setCityActive(city));
-    dispatch(getOffers());
-    // Вместо использования cityMap, передаем просто имя города
-    dispatch(setChangeMap(city));
+    if (selectedCard) {
+      dispatch(setCityActive(city));
+      dispatch(getOffers());
+      dispatch(setChangeMap(selectedCard));
+    }
   }
 
   return (
