@@ -24,7 +24,7 @@ const reducer = createReducer(initialState, (builder) => {
     })
 
     .addCase(setChangeMap, (state, action) => {
-      state.city = action.payload;
+      state.city = action.payload.name;
     });
 });
 
