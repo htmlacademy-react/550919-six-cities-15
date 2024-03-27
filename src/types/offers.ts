@@ -3,7 +3,7 @@ import { Host } from './host';
 
 export type Offer = {
   id: number;
-  name: string;
+  title: string;
   type: string;
   price: number;
   isPremium: boolean;

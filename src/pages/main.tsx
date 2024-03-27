@@ -20,7 +20,8 @@ const MainPage: React.FC<MainPageProps> = ({ citiesList,offers }) => {
   const selectedCard = offers.filter((offer) => offer.id === parseInt(cardId, 10))[0];
   const cityActive = useAppSelector((state) => state.cityActive);
   const offersActive = useAppSelector((state) => state.offers);
-  const placesCount = offersActive.length;
+  const filteredOffersByCity = offersActive.filter((offer) => offer.city.name === cityActive);
+  const placesCount = filteredOffersByCity.length;
 
   return (
     <div className="page page--gray page--main">
@@ -34,7 +35,7 @@ const MainPage: React.FC<MainPageProps> = ({ citiesList,offers }) => {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{placesCount} places to stay in {cityActive}</b>
               <Sort />
-              <OfferCardList offers={offersActive} setActiveOffer={setActiveOffer} />
+              <OfferCardList offers={filteredOffersByCity} setActiveOffer={setActiveOffer} />
             </section>
             <div className="cities__right-section">
               <Map mapType={'offer'} offers={offersActive} activeOffer={activeOffer} city={selectedCard} />
