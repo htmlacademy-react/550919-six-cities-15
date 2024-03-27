@@ -29,7 +29,7 @@ export const citiesList = Object.values(CITY_LIST);
 
 export const DEFAULT_CITY = CITY_LIST.Paris;
 
-export const [defaultLocation] = CITY_LIST.Amsterdam;
+export const defaultLocation = CITY_LIST.Amsterdam;
 
 export enum SortType {
   Popular = 'Popular',
