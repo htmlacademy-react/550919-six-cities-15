@@ -12,7 +12,7 @@ type OfferCardProps = {
 }
 
 const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer, additionalClass, imageSize, imageWidth, imageHeight }) => {
-  const { isPremium, previewImage, price, id, rating, type, name, isFavorite } = offer;
+  const { isPremium, previewImage, price, id, rating, type, title, isFavorite } = offer;
   const handleMouseOver = () => {
     if (setActiveOffer) {
       setActiveOffer(id as number | null);
@@ -24,7 +24,6 @@ const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer, additional
       setActiveOffer(null);
     }
   };
-
   const cardClasses = `${additionalClass ? 'favorites__card' : 'cities__card'} place-card`;
   const imageClasses = `${imageSize ? 'favorites__image-wrapper' : 'cities__image-wrapper'} place-card__image-wrapper`;
   const cardClassInfo = `${additionalClass ? `${additionalClass}-info` : 'place-card__info'}`;
@@ -66,7 +65,7 @@ const OfferCard: React.FC<OfferCardProps> = ({ offer, setActiveOffer, additional
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href={`offer/${id}`}>{name}</a>
+          <a href={`offer/${id}`}>{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
